@@ -4,6 +4,7 @@ import 'package:flutter/src/widgets/placeholder.dart';
 import 'package:gap/gap.dart';
 import 'package:get/get.dart';
 import 'package:jewellary_app/secondpage/listviewbulder.dart';
+import 'package:jewellary_app/thirdpage/cart.dart';
 
 class Secondpages extends StatefulWidget {
   const Secondpages({super.key});
@@ -90,40 +91,39 @@ class _SecondpagesState extends State<Secondpages> {
                 ),
               ],
             ),
-           
-             Padding(
-               padding: const EdgeInsets.all(20),
-               child: Container(
-                  height: 50,
-                  decoration: BoxDecoration(
-                    color: Colors.grey.shade300,
-                    borderRadius: BorderRadius.circular(10),
-                   
-                  ),
-                  child: Row(
-                    children: [
-                      const SizedBox(
-                        width: 6,
-                      ),
-                      const Icon(Icons.search),
-                      // ignore: prefer_const_constructors
-                      SizedBox(width: 5),
-                      const Text(
-                        "Search",
-                        style: TextStyle(
-                            color: Colors.black, fontWeight: FontWeight.bold),
-                      ),
-                    ],
-                  ),
+            Padding(
+              padding: const EdgeInsets.all(20),
+              child: Container(
+                height: 50,
+                decoration: BoxDecoration(
+                  color: Colors.grey.shade300,
+                  borderRadius: BorderRadius.circular(10),
                 ),
-             ),
-             Gap(20),
-
-           GridB(), 
-            
+                child: Row(
+                  children: [
+                    const SizedBox(
+                      width: 6,
+                    ),
+                    const Icon(Icons.search),
+                    // ignore: prefer_const_constructors
+                    SizedBox(width: 5),
+                    const Text(
+                      "Search",
+                      style: TextStyle(
+                          color: Colors.black, fontWeight: FontWeight.bold),
+                    ),
+                  ],
+                ),
+              ),
+            ),
+            Gap(20),
+            InkWell(
+                onTap: () {
+                  Get.to(CartPage());
+                },
+                child: GridB()),
           ],
         ),
-        
       ),
     );
   }

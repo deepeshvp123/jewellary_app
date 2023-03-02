@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:jewellary_app/cartdetails/cartpage.dart';
+import 'package:jewellary_app/cartdetails/cartpagee.dart';
 import 'package:jewellary_app/screens/appbar.dart';
 import 'package:jewellary_app/screens/bottemnavgation.dart';
 import 'package:jewellary_app/screens/searchbar.dart';
@@ -21,8 +23,10 @@ class splash extends StatelessWidget {
       //BottemNavigation()
       //Secondpages(),
       //Myappbar(),
-      CartPage(),
+      //CartPage(),
       //HomePage(),
+     // packages(),
+     Cardpage()
       
     );
   }

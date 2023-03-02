@@ -187,7 +187,9 @@ class _MyappbarState extends State<Myappbar> {
                                         padding:
                                             EdgeInsets.only(left: 210, top: 2)),
                                     ElevatedButton(
-                                        onPressed: () {},
+                                        onPressed: () {
+                                          Get.to(Secondpages());
+                                        },
                                         style: ElevatedButton.styleFrom(
                                             backgroundColor: Colors.white),
                                         child: const Text(
@@ -350,7 +352,11 @@ class _MyappbarState extends State<Myappbar> {
                       Container(
                         height: 350,
                         // color:  Colors.red,
-                        child: const scrolleble(),
+                        child: InkWell(
+                            onTap: () {
+                              Get.to(Secondpages());
+                            },
+                            child: const scrolleble()),
                       )
                     ],
                   ),
