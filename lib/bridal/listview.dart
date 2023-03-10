@@ -39,23 +39,22 @@ class _ListviewwState extends State<Listvieww> {
                     fit: BoxFit.cover,
                   ),
                 ),
-                child: Column(
-                  children: [
-                    Padding(
-                      padding: const EdgeInsets.only(top: 110),
-                      child: Text(
+                child: Padding(
+                  padding: const EdgeInsets.only(left: 15,bottom: 15),
+                  child: Column(
+                    mainAxisAlignment: MainAxisAlignment.end,
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Text(
                         rings.values.elementAt(index),
                         style: TextStyle(fontSize: 12, color: Colors.white),
                       ),
-                    ),
-                    Padding(
-                      padding: const EdgeInsets.only(right: 80),
-                      child: Text(
+                      Text(
                         text.elementAt(index),
                         style: TextStyle(color: Colors.white),
-                      ),
-                    )
-                  ],
+                      )
+                    ],
+                  ),
                 ),
               ),
             );

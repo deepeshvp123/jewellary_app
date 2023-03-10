@@ -78,14 +78,16 @@ class _GridBState extends State<GridB> {
           padding: const EdgeInsets.all(15),
           child: Container(
             decoration: BoxDecoration(
+              
+              
                 boxShadow: [
                   BoxShadow(
-                      color: Colors.grey, blurRadius: 8, offset: Offset(1, 2))
+                      color: Colors.white, blurRadius: 8, offset: Offset(1, 2))
                 ],
                 borderRadius: BorderRadius.circular(
                   10.0,
                 ),
-                color: Colors.white),
+                color: Colors.grey.shade200),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
@@ -103,7 +105,7 @@ class _GridBState extends State<GridB> {
                       child: Container(
                         child: Image.asset(
                           "${gridMap.elementAt(index)['images']}",
-                          height: 170,
+                          height: 160,
                           width: double.infinity,
                           fit: BoxFit.cover,
                         ),

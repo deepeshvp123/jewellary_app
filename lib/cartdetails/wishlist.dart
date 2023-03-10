@@ -3,21 +3,16 @@ import 'package:flutter/src/widgets/framework.dart';
 import 'package:flutter/src/widgets/placeholder.dart';
 import 'package:gap/gap.dart';
 import 'package:get/get.dart';
-import 'package:jewellary_app/cartdetails/buynowpage.dart';
-import 'package:jewellary_app/screens/appbar.dart';
-import 'package:jewellary_app/screens/dropdownsearchpage.dart';
-import 'package:salomon_bottom_bar/salomon_bottom_bar.dart';
+import 'package:get/get_core/src/get_main.dart';
 
-class Cardpage extends StatefulWidget {
-  const Cardpage({super.key});
+class Wishlist extends StatefulWidget {
+  const Wishlist({super.key});
 
   @override
-  State<Cardpage> createState() => _CardpageState();
+  State<Wishlist> createState() => _WishlistState();
 }
 
-class _CardpageState extends State<Cardpage> {
-  
-
+class _WishlistState extends State<Wishlist> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -25,7 +20,7 @@ class _CardpageState extends State<Cardpage> {
         elevation: 0,
         backgroundColor: Colors.white,
         title: Text(
-          "Cart",
+          "Wishlist",
           style: TextStyle(color: Colors.black),
         ),
         leading: IconButton(
@@ -37,60 +32,33 @@ class _CardpageState extends State<Cardpage> {
               color: Colors.black,
             )),
       ),
-      body: SingleChildScrollView(
-        child: Column(
-
-          children: [
+      body: Container(
+        width: double.infinity,
+        child: SingleChildScrollView(
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.start,
+            children: [
+              hotelpack(
+                  imagee: "assets/img/bangle1.jpg",
+                  text1: "Traditional cut golden",
+                  text2: "bangle",
+                  text3: "₹ 1,600",
+                  text4: "Flat 5% Off",
+                  women: "WOMEN | BANGLE",),
+             hotelpack(
+                  imagee: "assets/img/bangle1.jpg",
+                  text1: "Traditional cut golden",
+                  text2: "bangle",
+                  text3: "₹ 1,600",
+                  text4: "Flat 5% Off",
+                  women: "WOMEN | BANGLE",),
+                 
+            ],
             
-            Container(
-              width: double.infinity,
-              child: SingleChildScrollView(
-                child: Column(
-                  mainAxisAlignment: MainAxisAlignment.start,
-                  children: [
-                    hotelpack(
-                        imagee: "assets/img/bangle1.jpg",
-                        text1: "Traditional cut golden",
-                        text2: "bangle",
-                        text3: "₹ 1,600",
-                        text4: "Flat 5% Off",
-                        women: "WOMEN | BANGLE",),
-                    hotelpack(
-                        imagee: "assets/img/bangle1.jpg",
-                        text1: "Traditional cut golden",
-                        text2: "bangle",
-                        text3: "₹ 1,600",
-                        text4: "Flat 5% Off",
-                        women: "WOMEN | BANGLE",),
-                        Gap(370),
-                       
-                        Padding(
-                          padding: const EdgeInsets.only(left: 20,right: 20,),
-                          child: Container(
-                            height: 50,
-                            width: double.infinity,
-                            decoration: BoxDecoration(
-                              color: Color.fromARGB(255, 47, 18, 53),
-                              borderRadius: BorderRadius.circular(8),
-                            ),
-                            child: Center(
-                              child: Text("Checkout",
-                              style: TextStyle(fontSize: 18,
-                              color: Colors.white),),
-                            ),
-                          ),
-                        )
-                  ],
-                  
-                ),
-                
-              ),
-              
-            ),
-          ],
+          ),
+          
         ),
       ),
-   
     );
   }
 }
@@ -120,9 +88,8 @@ class hotelpack extends StatelessWidget {
             color: Colors.grey[200],
             borderRadius: BorderRadius.circular(10),
             boxShadow: [
-              BoxShadow(color: Colors.grey.shade100, blurRadius: 2, offset: Offset(1, 2))
-            ]
-            ),
+              BoxShadow(color: Colors.grey, blurRadius: 8, offset: Offset(1, 2))
+            ]),
         child: Stack(children: [
           Row(
             children: [

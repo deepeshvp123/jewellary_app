@@ -1,58 +1,68 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/src/widgets/framework.dart';
-import 'package:flutter/src/widgets/placeholder.dart';
-import 'package:google_nav_bar/google_nav_bar.dart';
+import 'package:get/get.dart';
+import 'package:jewellary_app/cartdetails/buynowpage.dart';
+import 'package:jewellary_app/cartdetails/cartpagee.dart';
+import 'package:jewellary_app/screens/appbar.dart';
+import 'package:jewellary_app/screens/dropdownsearchpage.dart';
+import 'package:salomon_bottom_bar/salomon_bottom_bar.dart';
 
-class BottemNavigation extends StatelessWidget {
-  const BottemNavigation({super.key});
+class SalomonBottomNavBar extends StatefulWidget {
+  const SalomonBottomNavBar({Key? key}) : super(key: key);
+
+  @override
+  _SalomonBottomNavBarState createState() => _SalomonBottomNavBarState();
+}
+
+class _SalomonBottomNavBarState extends State<SalomonBottomNavBar> {
+  int _currentIndex = 0;
+
+  
+  List pages = [
+    Myappbar(),
+    Dropdownsearch(),
+    Cardpage(),
+    BuynowPage()
+
+
+  ];
+
+  void onTap(int, index) {
+    setState(() {
+      _currentIndex = index;
+    });
+  }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      bottomNavigationBar: GNav(
-        
-          rippleColor: Colors.black, // tab button ripple color when pressed
-          hoverColor: Colors.greenAccent, // tab button hover color
-          haptic: true, // haptic feedback
-          tabBorderRadius: 20,
-          tabActiveBorder:
-              Border.all(color: Colors.black, width: 1), // tab button border
-          tabBorder:
-              Border.all(color: Colors.grey, width: 1), // tab button border
-          tabShadow: [
-            BoxShadow(
-                color: Colors.grey.withOpacity(0.5),
-                blurRadius: 8)
-          ], // tab button shadow
-          curve: Curves.easeOutExpo, // tab animation curves
-         // duration: Duration(milliseconds: 50), // tab animation duration
-          gap: 8, // the tab button gap between icon and text
-          color: Colors.black, // unselected icon color
-          activeColor: Colors.purple, // selected icon and text color
-          iconSize: 24, // tab button icon size
-          tabBackgroundColor:
-              Colors.purple.withOpacity(0.1), // selected tab background color
-          padding: EdgeInsets.symmetric(
-              horizontal: 20, vertical: 5), // navigation bar padding
-          tabs: [
-            GButton(
-              //icon: LineIcons.home,
-              icon: Icons.home,
-              text: 'Home',
-            ),
-            GButton(
-              icon: Icons.favorite_border,
-              text: 'Likes',
-            ),
-            GButton(
-              icon: Icons.search,
-              text: 'Search',
-            ),
-            GButton(
-              icon: Icons.person,
-              text: 'Profile',
-            )
-          ]),
+      body: pages[_currentIndex],
+      bottomNavigationBar: SalomonBottomBar(
+        currentIndex: _currentIndex,
+        margin: EdgeInsets.symmetric(vertical:10, horizontal: 20),
+        onTap: (index) {
+          setState(() {
+            _currentIndex = index;
+          });
+        },
+        items: [
+          SalomonBottomBarItem(
+              icon: Icon(Icons.home),
+              title: Text("Home"),
+              selectedColor: Colors.purple),
+          SalomonBottomBarItem(
+              icon: Icon(Icons.search),
+              title: Text("Search"),
+              selectedColor: Colors.pink),
+          SalomonBottomBarItem(
+              icon: Icon(Icons.card_travel_rounded),
+              title: Text("Cart"),
+              selectedColor: Colors.orange),
+          SalomonBottomBarItem(
+              icon: Icon(Icons.person),
+              title: Text("Profile"),
+              selectedColor: Colors.teal)
+        ],
+      ),
     );
   }
 }

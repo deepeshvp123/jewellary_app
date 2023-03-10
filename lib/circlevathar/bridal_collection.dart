@@ -18,9 +18,9 @@ class scrolleble extends StatefulWidget {
 
 class _scrollebleState extends State<scrolleble> {
   var images = {
-    "bangle.jpg": "Stunning jewllery collections exclusively for",
-    "images.jpg": "Stunning jewllery collections exclusively for ",
-    "img1.jpg": "Stunning jewllery collections exclusively for",
+    "women.jpg": "Stunning jewllery collections exclusively for",
+    "men1.jpg": "Stunning jewllery collections exclusively for ",
+    "childrens.jpg": "Stunning jewllery collections exclusively for",
   };
   List text = [
     "women",
@@ -43,49 +43,49 @@ class _scrollebleState extends State<scrolleble> {
                           "assets/img/" + images.keys.elementAt(index)),
                       fit: BoxFit.cover)),
               child: Container(
-                  child: Column(
-                children: [
-                  Padding(
-                    padding: const EdgeInsets.only(
-                      top: 250,
-                    ),
-                    child: Text(
+                  child: Padding(
+                    padding: const EdgeInsets.only(left: 20),
+                    child: Column(
+                                  mainAxisAlignment: MainAxisAlignment.end,
+                                  crossAxisAlignment: CrossAxisAlignment.start,
+                                  children: [
+                    Text(
                       images.values.elementAt(index),
                       style: TextStyle(
                         color: Colors.white,
                         fontSize: 16,
                       ),
                     ),
-                  ),
-                  // Gap(5),
-                  Padding(
-                    padding: const EdgeInsets.only(right: 200),
-                    child: Text(
+                    Text(
                       text[index],
                       style: TextStyle(
                           fontSize: 30,
                           color: Colors.white,
                           fontWeight: FontWeight.w500),
                     ),
-                  ),
-                  Padding(
-                    padding: const EdgeInsets.only(top: 15, left: 170),
-                    child: Row(
-                        children: List.generate(3, (indexDots) {
-                      return Container(
-                        margin: EdgeInsets.only(bottom: 2),
-                        height: 6,
-                        width: index == indexDots ? 25 : 8,
-                        decoration: BoxDecoration(
-                            borderRadius: BorderRadius.circular(8),
-                            color: index == indexDots
-                                ? Colors.black
-                                : Colors.white),
-                      );
-                    })),
-                  ),
-                ],
-              )),
+                    Padding(
+                      padding: const EdgeInsets.only(top: 0, left: 170,bottom: 15),
+                      child: Row(
+                          children: List.generate(3, (indexDots) {
+                        return Container(
+                          margin: EdgeInsets.only(bottom: 2),
+                          height: 6,
+                          width: index == indexDots ? 25 : 8,
+                          decoration: BoxDecoration(
+                              borderRadius: BorderRadius.circular(8),
+                              color: index == indexDots
+                                  ? Colors.black
+                                  : Colors.white),
+                                  
+                        );
+                        
+                      }),
+                      ),
+                      
+                    ),
+                                  ],
+                                ),
+                  )),
             );
           }),
     );

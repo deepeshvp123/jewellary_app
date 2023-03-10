@@ -3,6 +3,8 @@ import 'package:flutter/src/widgets/framework.dart';
 import 'package:flutter/src/widgets/placeholder.dart';
 import 'package:gap/gap.dart';
 import 'package:get/get.dart';
+import 'package:jewellary_app/cartdetails/buynowpage.dart';
+import 'package:jewellary_app/cartdetails/cartpagee.dart';
 import 'package:jewellary_app/screens/searchbar.dart';
 import 'package:jewellary_app/widgets/appbutton.dart';
 
@@ -43,12 +45,13 @@ class _CartPageState extends State<CartPage> {
                         children: [
                           IconButton(
                               onPressed: () {
-                              Get.back();
+                                Get.back();
                               },
                               icon: Icon(Icons.arrow_back_ios)),
                           Padding(
-                            padding: const EdgeInsets.only(left: 260),
-                            child: Icon(Icons.favorite_border),
+                            padding: const EdgeInsets.only(left: 240),
+                            child: Icon(Icons.favorite_border,
+                            ),
                           ),
                           Padding(
                             padding: const EdgeInsets.only(left: 15),
@@ -139,17 +142,20 @@ class _CartPageState extends State<CartPage> {
                                   child: Container(
                                     margin: EdgeInsets.only(right: 10),
                                     child: AppButtons(
+                                      
                                       color: selectedIndex == index
                                           ? Colors.white
                                           : Colors.black,
                                       backgroundColor: selectedIndex == index
                                           ? Colors.black
-                                          : Colors.white,
+                                          : Colors.grey.shade200,
                                       size: 50,
                                       borderColor: selectedIndex == index
                                           ? Colors.black
-                                          : Colors.black,
-                                      text: (index + 10).toString(),
+                                          : Colors.grey.shade200,
+                                      text:
+                                      
+                                       (index + 10).toString(),
                                     ),
                                   ),
                                 );
@@ -299,7 +305,7 @@ class _CartPageState extends State<CartPage> {
                                         fontSize: 14,
                                         fontWeight: FontWeight.bold),
                                   ),
-                                  Gap(120),
+                                  Gap(130),
                                   Text(
                                     "1",
                                     style: TextStyle(
@@ -319,7 +325,7 @@ class _CartPageState extends State<CartPage> {
                                         fontSize: 14,
                                         fontWeight: FontWeight.bold),
                                   ),
-                                  Gap(215),
+                                  Gap(212),
                                   Text(
                                     "Women ",
                                     style: TextStyle(
@@ -347,7 +353,7 @@ class _CartPageState extends State<CartPage> {
                                         fontSize: 14,
                                         fontWeight: FontWeight.bold),
                                   ),
-                                  Gap(185),
+                                  Gap(190),
                                   Text(
                                     "18KT(750) ",
                                     style: TextStyle(
@@ -367,7 +373,7 @@ class _CartPageState extends State<CartPage> {
                                         fontSize: 14,
                                         fontWeight: FontWeight.bold),
                                   ),
-                                  Gap(175),
+                                  Gap(182),
                                   Text(
                                     "Gold ",
                                     style: TextStyle(
@@ -399,7 +405,7 @@ class _CartPageState extends State<CartPage> {
                                         fontSize: 14,
                                         fontWeight: FontWeight.bold),
                                   ),
-                                  Gap(160),
+                                  Gap(170),
                                   Text(
                                     "1.2480 ",
                                     style: TextStyle(
@@ -414,43 +420,55 @@ class _CartPageState extends State<CartPage> {
                         ),
                         Gap(70),
                         Padding(
-                          padding: const EdgeInsets.only(left: 10,right: 30),
+                          padding: const EdgeInsets.only(left: 10, right: 30),
                           child: Row(
                             mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                            
                             children: [
-                             Container(
-                              height: 40,
-                              width: 150,
-                              
-                              decoration: BoxDecoration(
-                                border: Border.all( color: Color.fromARGB(255, 49, 7, 58),),
-                                color: Colors.transparent,
-                                borderRadius: BorderRadius.circular(8)
+                              InkWell(
+                                onTap: () {
+                                  Get.to(Cardpage());
+                                },
+                                child: Container(
+                                  height: 40,
+                                  width: 150,
+                                  decoration: BoxDecoration(
+                                      border: Border.all(
+                                        color: Color.fromARGB(255, 49, 7, 58),
+                                      ),
+                                      color: Colors.transparent,
+                                      borderRadius: BorderRadius.circular(8)),
+                                  child: Center(
+                                    child: Text(
+                                      "Add to cart",
+                                      style: TextStyle(
+                                          color: Colors.black,
+                                          fontSize: 17,
+                                          fontWeight: FontWeight.w700),
+                                    ),
+                                  ),
+                                ),
                               ),
-                              child: Center(
-                                child: Text("Add to cart",
-                                style: TextStyle(color: Colors.black,
-                                fontSize: 17,
-                                fontWeight: FontWeight.w700),),
+                              InkWell(
+                                onTap: () {
+                                  Get.to(BuynowPage());
+                                },
+                                child: Container(
+                                  height: 40,
+                                  width: 150,
+                                  decoration: BoxDecoration(
+                                      color: Color.fromARGB(255, 49, 7, 58),
+                                      borderRadius: BorderRadius.circular(8)),
+                                  child: Center(
+                                    child: Text(
+                                      "Buy now",
+                                      style: TextStyle(
+                                          color: Colors.white,
+                                          fontSize: 17,
+                                          fontWeight: FontWeight.w500),
+                                    ),
+                                  ),
+                                ),
                               ),
-                             ),
-                              Container(
-                              height: 40,
-                              width: 150,
-                              
-                              decoration: BoxDecoration(
-                               
-                                color: Color.fromARGB(255, 49, 7, 58),
-                                borderRadius: BorderRadius.circular(8)
-                              ),
-                              child: Center(
-                                child: Text("Buy now",
-                                style: TextStyle(color: Colors.white,
-                                fontSize: 17,
-                                fontWeight: FontWeight.w500),),
-                              ),
-                             ),
                             ],
                           ),
                         ),

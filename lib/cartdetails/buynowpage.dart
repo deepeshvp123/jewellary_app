@@ -3,31 +3,23 @@ import 'package:flutter/src/widgets/framework.dart';
 import 'package:flutter/src/widgets/placeholder.dart';
 import 'package:gap/gap.dart';
 import 'package:get/get.dart';
-import 'package:jewellary_app/cartdetails/buynowpage.dart';
+import 'package:get/get_core/src/get_main.dart';
 import 'package:jewellary_app/screens/appbar.dart';
-import 'package:jewellary_app/screens/dropdownsearchpage.dart';
-import 'package:salomon_bottom_bar/salomon_bottom_bar.dart';
 
-class Cardpage extends StatefulWidget {
-  const Cardpage({super.key});
+class BuynowPage extends StatefulWidget {
+  const BuynowPage({super.key});
 
   @override
-  State<Cardpage> createState() => _CardpageState();
+  State<BuynowPage> createState() => _BuynowPageState();
 }
 
-class _CardpageState extends State<Cardpage> {
-  
-
+class _BuynowPageState extends State<BuynowPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
         elevation: 0,
         backgroundColor: Colors.white,
-        title: Text(
-          "Cart",
-          style: TextStyle(color: Colors.black),
-        ),
         leading: IconButton(
             onPressed: () {
               Get.back();
@@ -37,60 +29,112 @@ class _CardpageState extends State<Cardpage> {
               color: Colors.black,
             )),
       ),
-      body: SingleChildScrollView(
-        child: Column(
-
-          children: [
-            
-            Container(
-              width: double.infinity,
-              child: SingleChildScrollView(
+      body: Container(
+        width: double.infinity,
+        child: SingleChildScrollView(
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.start,
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+               hotelpack(
+                  imagee: "assets/img/bangle1.jpg",
+                  text1: "Traditional cut golden",
+                  text2: "bangle",
+                  text3: "₹ 1,600",
+                  text4: "Flat 5% Off",
+                  women: "WOMEN | BANGLE",),
+              Gap(320),
+              Padding(
+                padding: const EdgeInsets.only(left: 20, right: 20),
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.start,
+                  crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    hotelpack(
-                        imagee: "assets/img/bangle1.jpg",
-                        text1: "Traditional cut golden",
-                        text2: "bangle",
-                        text3: "₹ 1,600",
-                        text4: "Flat 5% Off",
-                        women: "WOMEN | BANGLE",),
-                    hotelpack(
-                        imagee: "assets/img/bangle1.jpg",
-                        text1: "Traditional cut golden",
-                        text2: "bangle",
-                        text3: "₹ 1,600",
-                        text4: "Flat 5% Off",
-                        women: "WOMEN | BANGLE",),
-                        Gap(370),
-                       
-                        Padding(
-                          padding: const EdgeInsets.only(left: 20,right: 20,),
-                          child: Container(
-                            height: 50,
-                            width: double.infinity,
-                            decoration: BoxDecoration(
-                              color: Color.fromARGB(255, 47, 18, 53),
-                              borderRadius: BorderRadius.circular(8),
-                            ),
-                            child: Center(
-                              child: Text("Checkout",
-                              style: TextStyle(fontSize: 18,
-                              color: Colors.white),),
-                            ),
-                          ),
+                    Text(
+                      "Order Summery",
+                      style: TextStyle(
+                          fontSize: 18,
+                          color: Color.fromARGB(255, 43, 20, 48),
+                          fontWeight: FontWeight.bold),
+                    ),
+                    Divider(
+                      thickness: 1,
+                      color: Colors.grey,
+                    ),
+                    Gap(15),
+                    Row(
+                      children: [
+                        Text(
+                          "Traditional Cut Golden",
+                          style: TextStyle(fontWeight: FontWeight.bold),
+                        ),
+                        Gap(85),
+                        Text(
+                          "₹ 1,600",
+                          style: TextStyle(fontWeight: FontWeight.bold),
+                        ),
+                        Gap(25),
+                        Text(
+                          "x2",
+                          style: TextStyle(fontWeight: FontWeight.bold),
+                        ),
+                        Gap(25),
+                        Text(
+                          "₹ 3,200",
+                          style: TextStyle(fontWeight: FontWeight.bold),
                         )
+                      ],
+                    ),
+                    Text(
+                      "Bangle",
+                      style: TextStyle(fontWeight: FontWeight.bold),
+                    ),
+                    Gap(30),
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        Text(
+                          "Total :",
+                          style: TextStyle(
+                              fontSize: 18, fontWeight: FontWeight.bold),
+                        ),
+                        Text(
+                          "₹ 6,400",
+                          style: TextStyle(
+                              fontSize: 18, fontWeight: FontWeight.bold),
+                        ),
+                      ],
+                    )
                   ],
-                  
                 ),
-                
               ),
-              
-            ),
-          ],
+              Padding(
+                padding: const EdgeInsets.only(
+                    left: 20, right: 20, top: 78, bottom: 20),
+                child: InkWell(
+                  onTap: () {
+                    Get.to(Myappbar());
+                  },
+                  child: Container(
+                    height: 50,
+                    width: double.infinity,
+                    decoration: BoxDecoration(
+                      color: Color.fromARGB(255, 47, 18, 53),
+                      borderRadius: BorderRadius.circular(8),
+                    ),
+                    child: Center(
+                      child: Text(
+                        " Confirm Checkout",
+                        style: TextStyle(fontSize: 18, color: Colors.white),
+                      ),
+                    ),
+                  ),
+                ),
+              )
+            ],
+          ),
         ),
       ),
-   
     );
   }
 }
@@ -120,9 +164,8 @@ class hotelpack extends StatelessWidget {
             color: Colors.grey[200],
             borderRadius: BorderRadius.circular(10),
             boxShadow: [
-              BoxShadow(color: Colors.grey.shade100, blurRadius: 2, offset: Offset(1, 2))
-            ]
-            ),
+              BoxShadow(color: Colors.grey, blurRadius: 8, offset: Offset(1, 2))
+            ]),
         child: Stack(children: [
           Row(
             children: [
@@ -204,7 +247,7 @@ class hotelpack extends StatelessWidget {
                            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                         
                             children: [
-                              Text("-",
+                              Text("–",
                               style: TextStyle(
                                 
                               ),),

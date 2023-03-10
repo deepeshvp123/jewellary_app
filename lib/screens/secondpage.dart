@@ -3,6 +3,8 @@ import 'package:flutter/src/widgets/framework.dart';
 import 'package:flutter/src/widgets/placeholder.dart';
 import 'package:gap/gap.dart';
 import 'package:get/get.dart';
+import 'package:jewellary_app/cartdetails/buynowpage.dart';
+import 'package:jewellary_app/screens/dropdownsearchpage.dart';
 import 'package:jewellary_app/secondpage/listviewbulder.dart';
 import 'package:jewellary_app/thirdpage/cart.dart';
 
@@ -93,26 +95,31 @@ class _SecondpagesState extends State<Secondpages> {
             ),
             Padding(
               padding: const EdgeInsets.all(20),
-              child: Container(
-                height: 50,
-                decoration: BoxDecoration(
-                  color: Colors.grey.shade300,
-                  borderRadius: BorderRadius.circular(10),
-                ),
-                child: Row(
-                  children: [
-                    const SizedBox(
-                      width: 6,
-                    ),
-                    const Icon(Icons.search),
-                    // ignore: prefer_const_constructors
-                    SizedBox(width: 5),
-                    const Text(
-                      "Search",
-                      style: TextStyle(
-                          color: Colors.black, fontWeight: FontWeight.bold),
-                    ),
-                  ],
+              child: InkWell(
+                onTap: () {
+                  Get.to(Dropdownsearch());
+                },
+                child: Container(
+                  height: 50,
+                  decoration: BoxDecoration(
+                    color: Colors.grey.shade300,
+                    borderRadius: BorderRadius.circular(10),
+                  ),
+                  child: Row(
+                    children: [
+                      const SizedBox(
+                        width: 6,
+                      ),
+                      const Icon(Icons.search),
+                      // ignore: prefer_const_constructors
+                      SizedBox(width: 5),
+                      const Text(
+                        "Search",
+                        style: TextStyle(
+                            color: Colors.black, fontWeight: FontWeight.bold),
+                      ),
+                    ],
+                  ),
                 ),
               ),
             ),
